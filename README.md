@@ -20,7 +20,8 @@ Second step is to import the module in your application and subscribe to it
 ```js
 import OverlookerElementTiming from 'overlooker-element-timing';
 
-const overlookerElementTiming = new OverlookerElementTiming(); // you can put the name of the global variable that you used for store entries, in the first argument (default = 'oet')
+// you can put the name of the global variable that you used for store entries, in the first argument (default = 'oet')
+const overlookerElementTiming = new OverlookerElementTiming();
 
 overlookerElementTiming.observe((entry) => {
     // entry object contains element timing data in readable form
