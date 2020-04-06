@@ -1,6 +1,6 @@
 {
   "name": "overlooker-element-timing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The package for measuring the element timing is more simple",
   "main": "index.js",
   "scripts": {
