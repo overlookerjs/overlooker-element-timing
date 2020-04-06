@@ -1,17 +1,20 @@
 export default class OverlookerElementTiming {
-  constructor() {
+  constructor(propName = 'oet') {
     this.observers = [];
     this.timings = [];
 
-    if (!window.oet) {
-      window.oet = [];
+    if (!window[propName]) {
+      window[propName] = [];
     }
 
-    if (!(window.oet instanceof OverlookerElementTiming)) {
-      window.oet.forEach(this.prepareEntry.bind(this));
-      window.oet = this;
+    if (!(window[propName] instanceof OverlookerElementTiming)) {
+      if (window[propName].forEach instanceof Function) {
+        window[propName].forEach(this.prepareEntry.bind(this));
+      }
+
+      window[propName] = this;
     } else {
-      window.oet.observe((data, entry) => this.push(entry));
+      window[propName].observe((data, entry) => this.push(entry));
     }
   }
 
