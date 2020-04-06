@@ -1,0 +1,6 @@
+__tests__
+*.test.js
+.travis.yml
+.editorconfig
+.gitignore
+
