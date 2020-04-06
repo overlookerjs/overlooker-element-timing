@@ -4,12 +4,21 @@
   "description": "The package for measuring the element timing is more simple",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/overlookerjs/overlooker-element-timing.git"
   },
   "author": "Nikolay Ryabov",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "rollup": "^2.3.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
 }
