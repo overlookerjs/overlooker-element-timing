@@ -7,12 +7,16 @@ export default class OverlookerElementTiming {
       window.oet = [];
     }
 
-    window.oet.forEach(this.prepareEntry.bind(this));
-    window.oet = this;
+    if (!(window.oet instanceof OverlookerElementTiming)) {
+      window.oet.forEach(this.prepareEntry.bind(this));
+      window.oet = this;
+    } else {
+      window.oet.observe((data, entry) => this.push(entry));
+    }
   }
 
-  fireObservers(data) {
-    this.observers.forEach((cb) => cb(data));
+  fireObservers(data, entry) {
+    this.observers.forEach((cb) => cb(data, entry));
   };
 
   prepareEntry(entry) {
@@ -36,7 +40,7 @@ export default class OverlookerElementTiming {
 
     this.timings.push(preparedEntry);
 
-    this.fireObservers(preparedEntry);
+    this.fireObservers(preparedEntry, entry);
   };
 
   push(...entries) {
