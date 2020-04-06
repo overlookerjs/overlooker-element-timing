@@ -27,4 +27,16 @@ overlookerElementTiming.observe((entry) => {
     // entry object contains element timing data in readable form
     // use it according to your need
 });
+
+// for getting already handled entries
+overlookerElementTiming.getAll().forEach((entry) => {
+    // handle
+});
+```
+
+If you want to use this script in embedded version (with script tag), you can put the ./dist/index.min.js anywhere and use it from global namespace
+```js
+window.oet.observe(() => {
+    // ...
+});
 ```
