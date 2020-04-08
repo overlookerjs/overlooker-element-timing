@@ -11,7 +11,7 @@ First you need to add a snippet of code to the head of your document (before any
 This snippet creates a PerformanceObserver instance and starts observing element entry types.
 
 ```js
-if (!window.oet) {window.oet = [];}new PerformanceObserver(function (l) {window.oet.push(...l);}).observe({ entryTypes: ['element'] });
+if (!window.oet) {window.oet = [];}if (PerformanceObserver) {new PerformanceObserver(function (l) {window.oet.push.apply(window.oet, l.getEntries());}).observe({ entryTypes: ['element'] });}
 ```
 
 *__Note:__ You can use something else instead of `oet`, but you should put this string in the OverlookerElementTiming constructor as the first argument.*
