@@ -1,3 +1,5 @@
 import OverlookerElementTiming from './index.js';
 
-new OverlookerElementTiming();
+if (!(window.oet instanceof OverlookerElementTiming)) {
+  new OverlookerElementTiming();
+}
