@@ -1,20 +1,21 @@
 export default class OverlookerElementTiming {
-  constructor(propName = 'oet') {
+  constructor(propName = 'oet', wnd = window) {
     this.observers = [];
     this.timings = [];
+    this.wnd = wnd;
 
-    if (!window[propName]) {
-      window[propName] = [];
+    if (!this.wnd[propName]) {
+      this.wnd[propName] = [];
     }
 
-    if (!(window[propName] instanceof OverlookerElementTiming)) {
-      if (window[propName].forEach instanceof Function) {
-        window[propName].forEach(this._prepareEntry.bind(this));
+    if (!(this.wnd[propName] instanceof OverlookerElementTiming)) {
+      if (this.wnd[propName].forEach instanceof Function) {
+        this.wnd[propName].forEach(this._prepareEntry.bind(this));
       }
 
-      window[propName] = this;
+      this.wnd[propName] = this;
     } else {
-      window[propName].observe((entry) => this.push(entry));
+      this.wnd[propName].observe((entry) => this.push(entry));
     }
   }
 
@@ -47,10 +48,10 @@ export default class OverlookerElementTiming {
       url
     } = rawEntry;
 
-    const timingEntries = window.performance.getEntriesByName(url);
+    const timingEntries = this.wnd.performance.getEntriesByName(url);
     const timingEntry = timingEntries && timingEntries.length ? timingEntries[0].toJSON() : null;
 
-    const { innerHeight, innerWidth } = window;
+    const { innerHeight, innerWidth } = this.wnd;
 
     const {
       x,
