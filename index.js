@@ -107,7 +107,11 @@ export default class OverlookerElementTiming {
     this.timings = [];
   }
 
-  observe(cb) {
+  observe(cb, buffered) {
+    if (buffered) {
+      this.timings.forEach((timing) => cb(timing));
+    }
+
     this.observers.push(cb);
   }
 

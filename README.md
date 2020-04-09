@@ -26,7 +26,7 @@ const overlookerElementTiming = new OverlookerElementTiming();
 overlookerElementTiming.observe((entry) => {
     // entry object contains element timing data in readable form
     // use it according to your need
-});
+}, true); // set to true, if you want to receive already handled entries; 
 
 // for getting already handled entries
 overlookerElementTiming.getAll().forEach((entry) => {
