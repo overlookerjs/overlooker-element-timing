@@ -33,6 +33,8 @@ overlookerElementTiming.getAll().forEach((entry) => {
     // handle
 });
 ```
+*__Note:__ [entry types](https://github.com/overlookerjs/overlooker-element-timing/blob/master/index.d.ts).*
+
 
 If you want to use this script in embedded version (with script tag), you can put the ./dist/index.min.js anywhere and use it from global namespace
 ```js
