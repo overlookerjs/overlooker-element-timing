@@ -72,7 +72,7 @@ export default class OverlookerElementTiming {
     const visiblePercent = totalPixels ? visiblePixels / totalPixels : 0;
 
     const fetchStart = timingEntry ? timingEntry.fetchStart : startTime;
-    const loadComplete = timingEntry ? timingEntry.responseEnd : loadTime;
+    const load = timingEntry ? timingEntry.responseEnd : loadTime;
 
     const entry = {
       type: name,
@@ -84,10 +84,8 @@ export default class OverlookerElementTiming {
       },
       timings: name === 'image-paint' ? {
         fetchStart,
-        loadComplete,
-        loadAndAssociated: loadTime,
-        render: renderTime,
-        duration: renderTime - fetchStart
+        load,
+        render: loadTime
       } : {
         render: renderTime
       }
