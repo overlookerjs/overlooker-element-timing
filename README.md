@@ -1,5 +1,7 @@
 # overlooker-element-timing
 
+[![Build Status](https://travis-ci.com/overlookerjs/overlooker-element-timing.svg?branch=master)](https://travis-ci.com/overlookerjs/overlooker-element-timing) [![npm overlooker-element-timing package](https://img.shields.io/npm/v/overlooker-element-timing)](https://www.npmjs.com/package/overlooker-element-timing)
+
 ### Install
 ```
 npm i overlooker-element-timing
