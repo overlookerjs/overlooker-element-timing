@@ -55,10 +55,8 @@ const outputEntryImage = {
   },
   timings: {
     fetchStart: 10,
-    loadComplete: 20,
-    loadAndAssociated: 20,
-    render: 15,
-    duration: 5
+    load: 20,
+    render: 20
   }
 };
 
