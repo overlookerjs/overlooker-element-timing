@@ -30,4 +30,18 @@ declare module 'overlooker-element-timing' {
   };
 
   export type Entry = EntryImage | EntryText;
+
+  export default class OverlookerElementTiming {
+    constructor(propName?: string, wnd?: Window);
+
+    push(...entries: Array<PerformanceEntry>);
+
+    getAll(): Array<Entry>;
+
+    clear();
+
+    observe(cb: Function, buffered: boolean);
+
+    unobserve(cb: Function);
+  }
 }
